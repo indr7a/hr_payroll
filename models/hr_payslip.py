@@ -184,7 +184,7 @@ class HrPayslip(models.Model):
                     input_type_id = attachment_types[deduction_type].id
                     input_line_vals.append(Command.create({
                         'name': name,
-                        'amount': amount,
+                        'amount': amount if not slip.credit_note else -amount,
                         'input_type_id': input_type_id,
                     }))
                 slip.update({'input_line_ids': input_line_vals})
@@ -343,7 +343,10 @@ class HrPayslip(models.Model):
                     salary_lines = slip.line_ids.filtered(lambda r: r.code in input_lines.mapped('code'))
                     if not attachments or not salary_lines:
                         continue
-                    attachments.record_payment(abs(salary_lines.total))
+                    if slip.credit_note:
+                        attachments.record_payment(-abs(salary_lines.total))
+                    else:
+                        attachments.record_payment(abs(salary_lines.total))
         return res
 
     def action_payslip_draft(self):
@@ -500,10 +503,11 @@ class HrPayslip(models.Model):
         # after the payslip generation
         if any(p.state not in ['draft', 'verify'] for p in self):
             raise UserError(_('The payslips should be in Draft or Waiting state.'))
-        self.mapped('worked_days_line_ids').unlink()
-        self.mapped('line_ids').unlink()
-        self._compute_worked_days_line_ids()
-        self.compute_sheet()
+        payslips = self.filtered(lambda p: not p.edited)
+        payslips.mapped('worked_days_line_ids').unlink()
+        payslips.mapped('line_ids').unlink()
+        payslips._compute_worked_days_line_ids()
+        payslips.compute_sheet()
 
     def _round_days(self, work_entry_type, days):
         if work_entry_type.round_days != 'NO':
@@ -532,7 +536,7 @@ class HrPayslip(models.Model):
         self.ensure_one()
         res = []
         hours_per_day = self._get_worked_day_lines_hours_per_day()
-        work_hours = self.contract_id._get_work_hours(self.date_from, self.date_to, domain=domain)
+        work_hours = self.contract_id.get_work_hours(self.date_from, self.date_to, domain=domain)
         work_hours_ordered = sorted(work_hours.items(), key=lambda x: x[1])
         biggest_work = work_hours_ordered[-1][0] if work_hours_ordered else 0
         add_days_rounding = 0
@@ -796,7 +800,7 @@ class HrPayslip(models.Model):
         generate_from = min(p.date_from for p in self)
         current_month_end = date_utils.end_of(fields.Date.today(), 'month')
         generate_to = max(min(fields.Date.to_date(p.date_to), current_month_end) for p in valid_slips)
-        self.mapped('contract_id')._generate_work_entries(generate_from, generate_to)
+        self.mapped('contract_id').generate_work_entries(generate_from, generate_to)
 
         for slip in valid_slips:
             if not slip.struct_id.use_worked_day_lines:
@@ -1039,9 +1043,10 @@ class HrPayslip(models.Model):
         ])
         today = fields.Date.today()
         for employee in all_employees:
-            if employee.contract_id and employee.contract_id.date_end and employee.contract_id.date_end < today:
+            contract = employee.contract_id.sudo()
+            if contract and contract.date_end and contract.date_end < today:
                 employees_without_contracts += employee
-            elif not employee.contract_id:
+            elif not contract:
                 existing_draft_contract = self.env['hr.contract'].search([
                     ('employee_id', '=', employee.id),
                     ('company_id', '=', employee.company_id.id),

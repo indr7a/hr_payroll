@@ -23,6 +23,7 @@ class HrPayrollReport(models.Model):
     count_unforeseen_absence = fields.Integer('Days of Unforeseen Absence', group_operator="sum", readonly=True)
 
     name = fields.Char('Payslip Name', readonly=True)
+    type = fields.Char('Type', readonly=True)
     date_from = fields.Date('Start Date', readonly=True)
     date_to = fields.Date('End Date', readonly=True)
     company_id = fields.Many2one('res.company', 'Company', readonly=True)
@@ -53,7 +54,7 @@ class HrPayrollReport(models.Model):
     def _select(self, additional_rules):
         select_str = """
             SELECT
-                p.id as id,
+                row_number() over() as id,
                 CASE WHEN wd.id = min_id.min_line THEN 1 ELSE 0 END as count,
                 CASE WHEN wet.is_leave THEN 0 ELSE wd.number_of_days END as count_work,
                 CASE WHEN wet.is_leave THEN 0 ELSE wd.number_of_hours END as count_work_hours,
@@ -62,6 +63,7 @@ class HrPayrollReport(models.Model):
                 CASE WHEN wet.is_unforeseen THEN wd.number_of_days ELSE 0 END as count_unforeseen_absence,
                 CASE WHEN wet.is_leave THEN wd.amount ELSE 0 END as leave_basic_wage,
                 p.name as name,
+                wd.name as type,
                 p.date_from as date_from,
                 p.date_to as date_to,
                 e.id as employee_id,
@@ -81,7 +83,7 @@ class HrPayrollReport(models.Model):
                 continue
             handled_fields.append(field_name)
             select_str += """
-                CASE WHEN wd.id = min_id.min_line THEN %s.total ELSE 0 END as %s,""" % (field_name, field_name)
+                CASE WHEN wd.id = min_id.min_line THEN "%s".total ELSE 0 END as "%s",""" % (field_name, field_name)
         select_str += """
                 CASE WHEN wd.id = min_id.min_line THEN pln.total ELSE 0 END as net_wage,
                 CASE WHEN wd.id = min_id.min_line THEN plb.total ELSE 0 END as basic_wage,
@@ -108,7 +110,7 @@ class HrPayrollReport(models.Model):
                 continue
             handled_fields.append(field_name)
             from_str += """
-                left join hr_payslip_line %s on (%s.slip_id = p.id and %s.code = '%s')""" % (
+                left join hr_payslip_line "%s" on ("%s".slip_id = p.id and "%s".code = '%s')""" % (
                     field_name, field_name, field_name, rule.code)
         return from_str
 
@@ -122,7 +124,7 @@ class HrPayrollReport(models.Model):
                 continue
             handled_fields.append(field_name)
             group_by_str += """
-                %s.total,""" % (field_name)
+                "%s".total,""" % (field_name)
         group_by_str += """
                 e.id,
                 e.department_id,
@@ -132,6 +134,7 @@ class HrPayrollReport(models.Model):
                 wet.id,
                 p.id,
                 p.name,
+                wd.name,
                 p.date_from,
                 p.date_to,
                 pln.total,
@@ -142,7 +145,7 @@ class HrPayrollReport(models.Model):
         return group_by_str
 
     def init(self):
-        additional_rules = self.env['hr.salary.rule'].search([('appears_on_payroll_report', '=', True)])
+        additional_rules = self.env['hr.salary.rule'].sudo().search([('appears_on_payroll_report', '=', True)])
         query = """
         %s
         %s

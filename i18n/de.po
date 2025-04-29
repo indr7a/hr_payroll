@@ -7,15 +7,16 @@
 # Friederike Fasterling-Nesselbosch, 2022
 # Stefan Reisich <nafex@gmx.net>, 2023
 # Martin Trigaux, 2023
-# Larissa Manderfeld, 2023
+# Wil Odoo, 2024
+# Larissa Manderfeld, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-23 08:35+0000\n"
+"POT-Creation-Date: 2024-02-06 13:24+0000\n"
 "PO-Revision-Date: 2022-09-22 05:47+0000\n"
-"Last-Translator: Larissa Manderfeld, 2023\n"
+"Last-Translator: Larissa Manderfeld, 2024\n"
 "Language-Team: German (https://app.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,7 +140,7 @@ msgstr "<span class=\"ms-2\"> Stunden/Woche</span>"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Payroll Rules</span>"
-msgstr "<span class=\"o_form_label\">Regeln für die Lohnbuchhaltung</span>"
+msgstr "<span class=\"o_form_label\">Personalabrechnungsregeln</span>"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payslip_run_form
@@ -395,7 +396,7 @@ msgstr "Zuschuss"
 #. module: hr_payroll
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_salary_rule__condition_select__none
 msgid "Always True"
-msgstr "Immer Wahr"
+msgstr "Immer wahr"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_edit_payslip_line__amount
@@ -676,7 +677,7 @@ msgstr "Änderung der Tätigkeit"
 #: code:addons/hr_payroll/static/src/js/tours/hr_payroll.js:0
 #, python-format
 msgid "Check the <strong>Salary Structure Type</strong>."
-msgstr "Prüfen Sie die Art der <strong>Gehaltsstruktur</strong>."
+msgstr "Prüfen Sie den <strong>Gehaltsstrukturtyp</strong>."
 
 #. module: hr_payroll
 #. odoo-javascript
@@ -1030,6 +1031,21 @@ msgstr "Gehaltspfändung erstellen"
 #: model_terms:ir.actions.act_window,help:hr_payroll.action_hr_contract_repository
 msgid "Create a new contract"
 msgstr "Einen neuen Vertrag anlegen"
+
+#. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.action_salary_rule_form
+msgid "Create a new salary rule"
+msgstr "Eine neue Gehaltsregel erstellen"
+
+#. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.hr_rule_parameter_action
+msgid "Create a new salary rule parameter"
+msgstr "Einen neuen Gehaltsregelparameter erstellen"
+
+#. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.action_view_hr_payroll_structure_list_form
+msgid "Create a new salary structure"
+msgstr "Eine neue Gehaltsstruktur erstellen"
 
 #. module: hr_payroll
 #. odoo-javascript
@@ -1648,8 +1664,8 @@ msgstr "Generierte Gehaltsabrechnungen"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payroll_note_demo_content
-msgid "Give assurance card to new registered employees"
-msgstr "Neu angemeldeten Mitarbeitern Versicherungskarte aushändigen."
+msgid "Give insurance card to new registered employees"
+msgstr "Neu angemeldeten Mitarbeitern Versicherungskarte aushändigen"
 
 #. module: hr_payroll
 #. odoo-python
@@ -2034,11 +2050,6 @@ msgid "Made Payment Order ? "
 msgstr "Zahlungsauftrag erstellt? "
 
 #. module: hr_payroll
-#: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslip
-msgid "Made by Odoo with ❤️"
-msgstr "Von Odoo mit ❤️ erstellt."
-
-#. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__message_main_attachment_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_run__message_main_attachment_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_attachment__message_main_attachment_id
@@ -2361,8 +2372,8 @@ msgstr ""
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip__message_needaction_counter
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_run__message_needaction_counter
 #: model:ir.model.fields,help:hr_payroll.field_hr_salary_attachment__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+msgid "Number of messages requiring action"
+msgstr "Anzahl der Meldungen, die eine Aktion erfordern"
 
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip__message_has_error_counter
@@ -2438,7 +2449,7 @@ msgstr "Andere Eintragszeile"
 #. module: hr_payroll
 #: model:ir.ui.menu,name:hr_payroll.menu_hr_payslip_entry_type_view
 msgid "Other Input Types"
-msgstr "Andere Eintragsarten"
+msgstr "Andere Eingabetypen"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
@@ -2656,7 +2667,7 @@ msgstr "Eintragsname für Gehaltsabrechnung"
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payslip_input_type
 msgid "Payslip Input Type"
-msgstr "Eintragsart für Gehaltsabrechnung"
+msgstr "Eingabetyp für Gehaltsabrechnung"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__input_line_ids
@@ -2690,7 +2701,7 @@ msgstr "Gehaltsabrechnungsname"
 #. module: hr_payroll
 #: model:ir.actions.act_window,name:hr_payroll.action_view_hr_payslip_input_type
 msgid "Payslip Other Input Types"
-msgstr "Andere Eintragsarten für die Gehaltsabrechnung"
+msgstr "Andere Eingabetypen für die Gehaltsabrechnung"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_attachment_report__payslip_start_date
@@ -2774,7 +2785,7 @@ msgstr "Prozentsatz"
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule__amount_percentage
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_salary_rule__amount_select__percentage
 msgid "Percentage (%)"
-msgstr "Prozent (%)"
+msgstr "Prozentsatz (%)"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule__amount_percentage_base
@@ -2832,7 +2843,7 @@ msgstr "Berufssteuer"
 #: code:addons/hr_payroll/models/hr_payslip.py:0
 #, python-format
 msgid "Prorated end-of-year bonus"
-msgstr "Anteilige Prämie zum Jahresende"
+msgstr "Anteilige Belohnung zum Jahresende"
 
 #. module: hr_payroll
 #: model:hr.salary.rule,name:hr_payroll.hr_salary_rule_providentfund1
@@ -3197,7 +3208,7 @@ msgstr "Gehaltsstruktur"
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payroll_structure_type
 msgid "Salary Structure Type"
-msgstr "Art der Gehaltsstruktur"
+msgstr "Gehaltsstrukturtyp"
 
 #. module: hr_payroll
 #: model:ir.actions.act_window,name:hr_payroll.action_view_hr_payroll_structure_from_type
@@ -3723,7 +3734,7 @@ msgstr "Gesamt Arbeitstage"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
 msgid "Total Working Hours"
-msgstr "Arbeitsstunden Gesamt"
+msgstr "Arbeitsstunden insgesamt"
 
 #. module: hr_payroll
 #: model:ir.model.constraint,message:hr_payroll.constraint_hr_salary_attachment_check_total_amount
@@ -3756,6 +3767,7 @@ msgstr ""
 "Zwei Regeln mit dem gleichen Code können nicht am gleichen Tag beginnen"
 
 #. module: hr_payroll
+#: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_report__type
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_structure__type_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__struct_type_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_input__input_type_id
@@ -3835,7 +3847,7 @@ msgstr ""
 #: model:ir.model.fields,help:hr_payroll.field_hr_salary_rule__appears_on_employee_cost_dashboard
 msgid "Used to display the value in the employer cost dashboard."
 msgstr ""
-"Wird verwendet, um den Wert auf dem Dashboard der Mitarbeiterkosten "
+"Wird verwendet, um den Wert auf dem Dashboard der Arbeitgeberkosten "
 "anzuzeigen."
 
 #. module: hr_payroll
@@ -3889,7 +3901,7 @@ msgstr "Versionen"
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule__appears_on_employee_cost_dashboard
 msgid "View on Employer Cost Dashboard"
-msgstr "Anzeige auf Dashboard der Mitarbeiterkosten"
+msgstr "Anzeige auf Dashboard der Arbeitgeberkosten"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule__appears_on_payroll_report
@@ -4300,7 +4312,7 @@ msgstr "z. B. Nettogehalt"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_employee_grade_form
 msgid "e.g. Regular Pay"
-msgstr "z. B. Reguläre Vergütung"
+msgstr "z. B. Reguläres Gehalt"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payroll_note_demo_content

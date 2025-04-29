@@ -5,16 +5,17 @@
 # Translators:
 # Martin Trigaux, 2022
 # JH CHOI <hwangtog@gmail.com>, 2022
-# Sarah Park, 2023
 # Daye Jeong, 2023
+# Sarah Park, 2023
+# Wil Odoo, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-23 08:35+0000\n"
+"POT-Creation-Date: 2024-02-06 13:24+0000\n"
 "PO-Revision-Date: 2022-09-22 05:47+0000\n"
-"Last-Translator: Daye Jeong, 2023\n"
+"Last-Translator: Wil Odoo, 2024\n"
 "Language-Team: Korean (https://app.transifex.com/odoo/teams/41243/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -999,6 +1000,21 @@ msgid "Create a new contract"
 msgstr "새 근로 계약 만들기"
 
 #. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.action_salary_rule_form
+msgid "Create a new salary rule"
+msgstr "새 급여 규칙 만들기"
+
+#. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.hr_rule_parameter_action
+msgid "Create a new salary rule parameter"
+msgstr "새 급여 규칙 매개변수 만들기"
+
+#. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.action_view_hr_payroll_structure_list_form
+msgid "Create a new salary structure"
+msgstr "새 급여 구조 만들기"
+
+#. module: hr_payroll
 #. odoo-javascript
 #: code:addons/hr_payroll/static/src/components/dashboard/todo_list/todo_list.xml:0
 #, python-format
@@ -1604,8 +1620,8 @@ msgstr "생성된 급여 명세서"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payroll_note_demo_content
-msgid "Give assurance card to new registered employees"
-msgstr "신규 등록한 직원에게 보증 카드 제공"
+msgid "Give insurance card to new registered employees"
+msgstr "신규 직원에게 보험 카드 제공"
 
 #. module: hr_payroll
 #. odoo-python
@@ -1857,8 +1873,8 @@ msgid ""
 " basic salary per product can defined in expression like: result = "
 "inputs.SALEURO.amount * contract.wage * 0.01."
 msgstr ""
-"계산에 사용됩니다. 예. 제품 당 기본급의 1%를 수당으로 제공받는 영업사원은 result = inputs.SALEURO.amount *"
-" contract.wage * 0.01 의 표현식으로 수수료를 정의할 수 있습니다."
+"계산에 사용됩니다. 예. 제품 당 기본급의 1%%를 수당으로 제공받는 영업사원은 result = inputs.SALEURO.amount "
+"* contract.wage * 0.01 의 표현식으로 수수료를 정의할 수 있습니다."
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_report__job_id
@@ -1977,11 +1993,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__paid
 msgid "Made Payment Order ? "
 msgstr "지급 명령 만들기?"
-
-#. module: hr_payroll
-#: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslip
-msgid "Made by Odoo with ❤️"
-msgstr "Odoo 제작 ❤️"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__message_main_attachment_id
@@ -2297,7 +2308,7 @@ msgstr "상근으로 간주하는 근무 시간"
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip__message_needaction_counter
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_run__message_needaction_counter
 #: model:ir.model.fields,help:hr_payroll.field_hr_salary_attachment__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr "조치가 필요한 메시지 수"
 
 #. module: hr_payroll
@@ -3637,6 +3648,7 @@ msgid "Two rules with the same code cannot start the same day"
 msgstr "동일한 코드를 가진 두 규칙이 같은 날에 시작할 수 없습니다"
 
 #. module: hr_payroll
+#: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_report__type
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_structure__type_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__struct_type_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_input__input_type_id

@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
+import base64
+
 from freezegun import freeze_time
 
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
 from odoo.tests import HttpCase, tagged, TransactionCase
+from odoo.tools import file_open
 
 from odoo.addons.mail.tests.common import mail_new_test_user
+
 
 @tagged('-at_install', 'post_install', 'payroll_dashboard_ui')
 class TestDashboardUi(HttpCase):
@@ -33,6 +37,21 @@ class TestDashboardUi(HttpCase):
             'department_id': department.id,
             'resource_calendar_id': company.resource_calendar_id.id,
         })
+        # The test will break if sign is installed
+        if self.env['ir.module.module'].search([('name', '=', 'sign'), ('state', '=', 'installed')]):
+            user.groups_id += self.env.ref('sign.group_sign_manager', raise_if_not_found=False)
+            with file_open('sign/static/demo/employment.pdf', "rb") as f:
+                pdf_content = base64.b64encode(f.read())
+
+            attachment = self.env['ir.attachment'].create({
+                'type': 'binary',
+                'datas': pdf_content,
+                'name': 'Employment Contract.pdf',
+            })
+            self.env['sign.template'].create({
+                'attachment_id': attachment.id,
+                'sign_item_ids': [(6, 0, [])],
+            })
         self.start_tour("/", "payroll_dashboard_ui_tour", login='dashboarder', timeout=300)
 
 @tagged('-at_install', 'post_install', 'payroll_dashboard')
@@ -207,7 +226,7 @@ class TestDashboard(TransactionCase):
         fr_lang = self.env['res.lang'].search([['code', '=', 'fr_FR']])
         if 'website' in self.env:
             self.env['website'].search([]).write({'language_ids': fr_lang.ids, 'default_lang_id': fr_lang.id})
-        self.env['res.users'].search([]).write({'lang' : 'fr_FR'})
+        self.env['res.users'].with_context(active_test=False).search([]).write({'lang' : 'fr_FR'})
         self.env['res.partner'].search([]).write({'lang' : 'fr_FR'})
 
         self.env['res.lang'].search([['code', '=', 'en_US']]).active = False

@@ -4,18 +4,21 @@
 # 
 # Translators:
 # Cécile Collart <cco@odoo.com>, 2022
-# Martin Trigaux, 2022
-# Braulio D. López Vázquez <bdl@odoo.com>, 2023
+# Braulio D. López Vázquez <bdl@odoo.com>, 2022
 # Iran Villalobos López, 2023
-# Fernanda Alvarez, 2023
+# Wil Odoo, 2024
+# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
+# Martin Trigaux, 2024
+# Lucia Pacheco, 2024
+# Fernanda Alvarez, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-23 08:35+0000\n"
+"POT-Creation-Date: 2024-02-06 13:24+0000\n"
 "PO-Revision-Date: 2022-09-22 05:47+0000\n"
-"Last-Translator: Fernanda Alvarez, 2023\n"
+"Last-Translator: Fernanda Alvarez, 2024\n"
 "Language-Team: Spanish (Mexico) (https://app.transifex.com/odoo/teams/41243/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,9 +82,9 @@ msgid ""
 msgstr ""
 "* Cuando se crea el recibo de nómina, el estado es 'Borrador'\n"
 "                \n"
-"* Si el recibo de nómina está bajo verificación, el estado es 'En espera'.\n"
+"* Si el recibo de nómina se está verificando, el estado es 'En espera'.\n"
 "                \n"
-"* Si se confirma el recibo de nómina entonces el estado se cambia a 'Finalizado'.\n"
+"* Si se confirma el recibo de nómina, el estado es 'Finalizado'.\n"
 "                \n"
 "* Cuando el usuario cancela el recibo de nómina, el estado es 'Rechazado'."
 
@@ -167,8 +170,8 @@ msgid ""
 msgstr ""
 "<span role=\"status\" class=\"alert alert-warning d-block\" "
 "attrs=\"{'invisible': [('display_warning', '=', False)]}\">Seleccionó "
-"contratos que no están en ejecución, este asistente solo puede indexar los "
-"contratos en ejecución.</span>"
+"contratos que no están activos. Este asistente solo puede indexar contratos "
+"activos.</span>"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.payroll_resource_calendar_view_form
@@ -194,10 +197,10 @@ msgid ""
 "automatic recalculation. Be careful that reordering the lines doesn't "
 "recompute them.</span>"
 msgstr ""
-"<span><strong>Consejo:</strong> cada vez que edite la cantidad o el importe "
-"en una línea, recalculamos las siguientes líneas. Recomendamos que edite de "
-"arriba hacia abajo para prevenir que su edición sea sobrescrita por el "
-"recálculo automático. Tenga en cuenta que reordenar las líneas no las "
+"<span><strong>Consejo:</strong> cada que edita la cantidad o el importe en "
+"una línea, se recalculan las líneas que le siguen a esa. Le recomendamos que"
+" las edite de arriba hacia abajo para evitar que este recálculo automático "
+"sobrescriba sus cambios. Tenga en cuenta que reordenar las líneas no las "
 "recalcula.</span>"
 
 #. module: hr_payroll
@@ -285,7 +288,7 @@ msgid ""
 msgstr ""
 "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%; margin:0px auto;\"><tbody>\n"
 "    <tr><td valign=\"top\" style=\"text-align: left; font-size: 14px;\">\n"
-"        Apreciable <t t-esc=\"object.employee_id.name\"></t>, hay un nuevo recibo de nómina disponible para usted.<br><br>\n"
+"        Apreciable <t t-esc=\"object.employee_id.name\"></t>, tiene un nuevo recibo de nómina disponible.<br><br>\n"
 "        Encontrará el PDF en su portal de empleado.<br><br>\n"
 "        Tenga un buen día,<br>\n"
 "        El equipo de RR.HH\n"
@@ -308,7 +311,7 @@ msgstr "Contabilidad"
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_run__message_needaction
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_attachment__message_needaction
 msgid "Action Needed"
-msgstr "Acción requerida"
+msgstr "Se requiere una acción"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_structure__active
@@ -332,7 +335,7 @@ msgstr "Actividades"
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__activity_exception_decoration
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_run__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "Decoración de actividad de excepción"
+msgstr "Decoración de la actividad de excepción"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__activity_state
@@ -432,7 +435,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payroll_structure_type__default_schedule_pay__annually
 #, python-format
 msgid "Annually"
-msgstr "Anualmente"
+msgstr "Anual"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
@@ -485,7 +488,7 @@ msgstr "¿Está seguro de que desea eliminar esta nota?"
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_salary_attachment__deduction_type__assignment
 #, python-format
 msgid "Assignment of Salary"
-msgstr "Asignación de salario"
+msgstr "Asignación salarial"
 
 #. module: hr_payroll
 #. odoo-python
@@ -494,8 +497,7 @@ msgstr "Asignación de salario"
 msgid ""
 "At least one previous negative net could be reported on this payslip for %s"
 msgstr ""
-"Por lo menos un neto negativo se pudo registrar en este recibo de nómina "
-"para %s"
+"Se registró al menos un neto negativo en este recibo de nómina para %s"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__message_attachment_count
@@ -516,7 +518,7 @@ msgstr "Nombre del archivo adjunto"
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_salary_attachment__deduction_type__attachment
 #, python-format
 msgid "Attachment of Salary"
-msgstr "Archivo adjunto de salario"
+msgstr "Deducción salarial"
 
 #. module: hr_payroll
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payroll_report__work_entry_source__attendance
@@ -613,7 +615,7 @@ msgstr "Cálculos"
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contract__calendar_changed
 msgid "Calendar Changed"
-msgstr "Cambió el calendario"
+msgstr "Cambio del calendario"
 
 #. module: hr_payroll
 #: model:ir.actions.server,name:hr_payroll.action_hr_payroll_cancel_payroll
@@ -653,7 +655,7 @@ msgid ""
 "unwanted changes."
 msgstr ""
 "Cuidado, el código se utiliza en muchas referencias, cambiarlo podría "
-"resultar en cambios no deseados."
+"ocasionar cambios no deseados."
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_edit_payslip_line__category_id
@@ -920,7 +922,7 @@ msgid ""
 "Congratulations! You created your first contract and generated your first "
 "payslip!"
 msgstr ""
-"¡Felicidades! ¡Creó su primer contrato y generó su primer recibo de nómina!"
+"¡Felicidades! Creó su primer contrato y generó su primer recibo de nómina."
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_edit_payslip_line__contract_id
@@ -1005,22 +1007,37 @@ msgstr "Código de país"
 #. module: hr_payroll
 #: model:ir.actions.server,name:hr_payroll.action_hr_payroll_confirm_payroll
 msgid "Create Draft Entry"
-msgstr "Crear un asiento en estado de borrador"
+msgstr "Crear un borrador de entrada"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "Create SEPA payment"
-msgstr "Crear pago SEPA"
+msgstr "Cree pagos SEPA"
 
 #. module: hr_payroll
 #: model:ir.actions.server,name:hr_payroll.action_new_salary_attachment
 msgid "Create Salary Attachment"
-msgstr "Crear archivo adjunto de salario"
+msgstr "Crear deducción salarial"
 
 #. module: hr_payroll
 #: model_terms:ir.actions.act_window,help:hr_payroll.action_hr_contract_repository
 msgid "Create a new contract"
 msgstr "Crear un nuevo contrato"
+
+#. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.action_salary_rule_form
+msgid "Create a new salary rule"
+msgstr "Crear una nueva regla salarial"
+
+#. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.hr_rule_parameter_action
+msgid "Create a new salary rule parameter"
+msgstr "Crear un nuevo parámetro para regla salarial"
+
+#. module: hr_payroll
+#: model_terms:ir.actions.act_window,help:hr_payroll.action_view_hr_payroll_structure_list_form
+msgid "Create a new salary structure"
+msgstr "Crear una nueva estructura salarial"
 
 #. module: hr_payroll
 #. odoo-javascript
@@ -1198,8 +1215,8 @@ msgid ""
 "anymore and all the valid rules of the structures of the employee's "
 "contracts will be applied."
 msgstr ""
-"Define las reglas que se tienen que aplicar a este recibo de nómina, de "
-"acuerdo al contrato elegido. Si el contrato está vacío, este campo ya no es "
+"Define las reglas que se tienen que aplicar a este recibo de nómina según el"
+" contrato elegido. Si el contrato está vacío, este campo ya no es "
 "obligatorio y se aplicarán todas las reglas de estructuras validadas en los "
 "contratos de los empleados."
 
@@ -1335,7 +1352,7 @@ msgstr "Asistente de edición de líneas de recibo de nómina"
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payroll_edit_payslip_worked_days_line
 msgid "Edit payslip line wizard worked days"
-msgstr "Asistente de edición de líneas de recibo de nómina días trabajados"
+msgstr "Asistente de edición de líneas de recibo de nómina de días trabajados"
 
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payroll_edit_payslip_lines_wizard
@@ -1447,14 +1464,14 @@ msgstr "Empleados"
 #: code:addons/hr_payroll/models/hr_payslip.py:0
 #, python-format
 msgid "Employees (With Running Contracts) missing from open batches"
-msgstr "Faltan empleados (con contratos en ejecución) en los lotes abiertos"
+msgstr "Faltan empleados (con contratos activos) en los lotes abiertos"
 
 #. module: hr_payroll
 #. odoo-python
 #: code:addons/hr_payroll/models/hr_payslip.py:0
 #, python-format
 msgid "Employees With Both New And Running Contracts"
-msgstr "Empleados con contratos tanto nuevos como en ejecución"
+msgstr "Empleados con contratos tanto nuevos como activos"
 
 #. module: hr_payroll
 #. odoo-python
@@ -1468,7 +1485,7 @@ msgstr "Empleados con múltiples recibos de nómina abiertos al mismo tiempo"
 #: code:addons/hr_payroll/models/hr_payslip.py:0
 #, python-format
 msgid "Employees Without Running Contracts"
-msgstr "Empleados sin contratos en ejecución"
+msgstr "Empleados sin contratos activos"
 
 #. module: hr_payroll
 #. odoo-python
@@ -1635,8 +1652,9 @@ msgstr "Recibos de nómina generados"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payroll_note_demo_content
-msgid "Give assurance card to new registered employees"
-msgstr "Dar tarjeta de garantía a los nuevos empleados registrados"
+msgid "Give insurance card to new registered employees"
+msgstr ""
+"Proporcionar tarjeta de seguro médico a los nuevos empleados registrados"
 
 #. module: hr_payroll
 #. odoo-python
@@ -1762,7 +1780,7 @@ msgstr "Icono"
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip__activity_exception_icon
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_run__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr "Icono para indicar una actividad de excepción."
+msgstr "Icono que indica una actividad de excepción."
 
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip__message_needaction
@@ -1944,7 +1962,7 @@ msgstr "Última modificación el"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payslip_line_view_search_register
 msgid "Last Month"
-msgstr "Mes anterior"
+msgstr "Mes pasado"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payslip_line_view_search_register
@@ -2015,11 +2033,6 @@ msgstr "Enlaces:"
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__paid
 msgid "Made Payment Order ? "
 msgstr "¿Realizó la orden de pago? "
-
-#. module: hr_payroll
-#: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslip
-msgid "Made by Odoo with ❤️"
-msgstr "Hecho por Odoo con ❤️"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__message_main_attachment_id
@@ -2221,7 +2234,7 @@ msgstr "Nuevo recibo de nómina"
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__activity_calendar_event_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_run__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
-msgstr "Siguiente evento en el calendario de actividades."
+msgstr "Siguiente evento en el calendario de actividades"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__activity_date_deadline
@@ -2341,7 +2354,7 @@ msgstr "Número de horas a trabajar para ser considerado como tiempo completo."
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip__message_needaction_counter
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_run__message_needaction_counter
 #: model:ir.model.fields,help:hr_payroll.field_hr_salary_attachment__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr "Número de mensajes que requieren una acción"
 
 #. module: hr_payroll
@@ -2533,7 +2546,7 @@ msgstr "Tablero de nómina"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "Payroll Entries"
-msgstr "Registros de la nómina"
+msgstr "Asientos de nómina"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
@@ -2783,7 +2796,7 @@ msgstr "Planeación"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "Post payroll slips in accounting"
-msgstr "Publicar recibos de nómina en contabilidad"
+msgstr "Registre los recibos de nómina en su contabilidad"
 
 #. module: hr_payroll
 #. odoo-python
@@ -2854,7 +2867,7 @@ msgstr "Cantidad/Tasa"
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payroll_structure__schedule_pay__quarterly
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payroll_structure_type__default_schedule_pay__quarterly
 msgid "Quarterly"
-msgstr "Trimestralmente"
+msgstr "Trimestral"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__queued_for_pdf
@@ -2954,7 +2967,7 @@ msgstr "El importe restante debe ser positivo."
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_salary_attachment__remaining_amount
 msgid "Remaining amount to be paid."
-msgstr "El importe pagado que debe pagarse."
+msgstr "El importe restante a pagar."
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_structure__report_id
@@ -3030,7 +3043,7 @@ msgstr "En proceso"
 #: code:addons/hr_payroll/models/hr_payslip.py:0
 #, python-format
 msgid "Running contracts coming to an end"
-msgstr "Contratos en ejecución próximos a finalizar"
+msgstr "Contratos activos próximos a finalizar"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_employee__sim_card
@@ -3042,7 +3055,7 @@ msgstr "Copia de la tarjeta SIM"
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_run__message_has_sms_error
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_attachment__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr "Error de entrega de SMS"
+msgstr "Error en el envío del SMS"
 
 #. module: hr_payroll
 #: model:ir.ui.menu,name:hr_payroll.menu_hr_salary_configuration
@@ -3059,30 +3072,30 @@ msgstr "Salario"
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_salary_attachment_view_form
 #, python-format
 msgid "Salary Attachment"
-msgstr "Archivo adjunto del salario"
+msgstr "Deducción salarial"
 
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_salary_attachment_report
 msgid "Salary Attachment / Report"
-msgstr "Archivo adjunto/reporte del salario"
+msgstr "Deducción salarial/reporte"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contract_history__salary_attachment_count
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_employee__salary_attachment_count
 msgid "Salary Attachment Count"
-msgstr "Número de archivos adjuntos de salario"
+msgstr "Número de deducciones salariales"
 
 #. module: hr_payroll
 #: model:ir.actions.act_window,name:hr_payroll.hr_salary_attachment_report_action
 #: model:ir.ui.menu,name:hr_payroll.menu_hr_payroll_attachment_salary_report
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_salary_attachment_report_view_pivot
 msgid "Salary Attachment Report"
-msgstr "Reporte de archivo adjunto de salario"
+msgstr "Reporte de deducción salarial"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__salary_attachment_count
 msgid "Salary Attachment count"
-msgstr "Número de archivos adjuntos de salario"
+msgstr "Número de deducciones salariales"
 
 #. module: hr_payroll
 #. odoo-python
@@ -3095,7 +3108,7 @@ msgstr "Número de archivos adjuntos de salario"
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
 #, python-format
 msgid "Salary Attachments"
-msgstr "Archivos adjuntos de salario"
+msgstr "Deducciones salariales"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_salary_rule_category_form
@@ -3208,7 +3221,7 @@ msgstr "Buscar recibos de nómina"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_salary_attachment_view_search
 msgid "Search Salary Attachment"
-msgstr "Buscar archivo adjunto de salario"
+msgstr "Buscar deducción salarial"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_rule_filter
@@ -3232,7 +3245,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payroll_structure__schedule_pay__semi-annually
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payroll_structure_type__default_schedule_pay__semi-annually
 msgid "Semi-annually"
-msgstr "Semestralmente"
+msgstr "Semestral"
 
 #. module: hr_payroll
 #: model:mail.template,description:hr_payroll.mail_template_new_payslip
@@ -3276,13 +3289,13 @@ msgstr ""
 #: code:addons/hr_payroll/static/src/js/tours/hr_payroll.js:0
 #, python-format
 msgid "Set the Contract as <strong><q>Running</q></strong>."
-msgstr "Establecer el contrato a <strong><q>En ejecución</q></strong>."
+msgstr "Establecer el contrato como <strong><q>Activo</q></strong>."
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payslip_run_form
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
 msgid "Set to Draft"
-msgstr "Establecer a borrador"
+msgstr "Establecer como borrador"
 
 #. module: hr_payroll
 #: model:ir.actions.act_window,name:hr_payroll.action_hr_payroll_configuration
@@ -3637,7 +3650,7 @@ msgstr "Intervalos de tiempo que buscar:%s"
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__date_to
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line__date_to
 msgid "To"
-msgstr "A"
+msgstr "Hasta"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_filter
@@ -3718,6 +3731,7 @@ msgid "Two rules with the same code cannot start the same day"
 msgstr "Dos reglas con el mismo código no pueden comenzar el mismo día"
 
 #. module: hr_payroll
+#: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_report__type
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_structure__type_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip__struct_type_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_input__input_type_id
@@ -3731,7 +3745,7 @@ msgstr "Tipo"
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip__activity_exception_decoration
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_run__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr "Tipo de actividad de excepción registrada."
+msgstr "Tipo de la actividad de excepción registrada."
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_work_entry_type__is_unforeseen
@@ -3869,7 +3883,7 @@ msgstr "Tipo de salario"
 #: code:addons/hr_payroll/wizard/hr_payroll_index_wizard.py:0
 #, python-format
 msgid "Wage indexed by %.2f%% on %s"
-msgstr "Salario indexado por%.2f%% en %s"
+msgstr "Salario indexado por %.2f%% el %s"
 
 #. module: hr_payroll
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payslip__state__verify
@@ -3918,7 +3932,7 @@ msgstr "Mensajes del sitio web"
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_run__website_message_ids
 #: model:ir.model.fields,help:hr_payroll.field_hr_salary_attachment__website_message_ids
 msgid "Website communication history"
-msgstr "Historial de comunicaciones del sitio web"
+msgstr "Historial de comunicación del sitio web"
 
 #. module: hr_payroll
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payroll_structure__schedule_pay__weekly
@@ -4082,7 +4096,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_payroll_report__work_entry_source__calendar
 #: model:ir.model.fields.selection,name:hr_payroll.selection__hr_work_entry_report__work_entry_source__calendar
 msgid "Working Schedule"
-msgstr "Horario laboral"
+msgstr "Horario de trabajo"
 
 #. module: hr_payroll
 #. odoo-python
@@ -4172,7 +4186,7 @@ msgstr ""
 #: code:addons/hr_payroll/models/hr_salary_attachment.py:0
 #, python-format
 msgid "You cannot delete a running salary attachment!"
-msgstr "¡No puede eliminar un archivo adjunto de salario en ejecución!"
+msgstr "No puede eliminar una deducción salarial activa."
 
 #. module: hr_payroll
 #. odoo-python
